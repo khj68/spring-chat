@@ -7,7 +7,7 @@ import org.springframework.web.socket.WebSocketSession;
 
 import lombok.Builder;
 import lombok.Data;
-import jun.chat.data.ChatMessage;
+import jun.chat.ChatService;
 
 @Data
 public class ChatRoom {
