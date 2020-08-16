@@ -11,8 +11,6 @@ import javax.annotation.PostConstruct;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
@@ -25,8 +23,6 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 @Service
 public class ChatService {
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
-
     
     private final ObjectMapper objectMapper;
     private Map<String, ChatRoom> chatRooms;
@@ -58,7 +54,7 @@ public class ChatService {
         try {
             session.sendMessage(new TextMessage(objectMapper.writeValueAsString(message)));
         } catch (IOException e) {
-            logger.error(e.getMessage(), e);
+            log.error(e.getMessage(), e);
         }
     }
 }
