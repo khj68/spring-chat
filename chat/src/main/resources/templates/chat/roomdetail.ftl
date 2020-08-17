@@ -69,7 +69,7 @@
                         ws.send("/pub/chat/message", {}, JSON.stringify({type:'TALK', roomId:this.roomId, sender:this.sender, message:this.message}));
                         this.message = '';
                     },
-                    recvMessage: function() {
+                    recvMessage: function(recv) {
                         this.messages.unshift({"type": recv.type, "sender": recv.type == 'JOIN'?'[알림]':recv.sender, "message":recv.message})
                     }
                 }
@@ -82,7 +82,7 @@
                         var recv = JSON.parse(message.body);
                         vm.recvMessage(recv);
                     });
-                    ws.send("/pub/chat/message", {}, JSON.stringify({type:'ENTER', roomId:vm.$data.roomId, sender:vm.$data.sender}));
+                    ws.send("/pub/chat/message", {}, JSON.stringify({type:'JOIN', roomId:vm.$data.roomId, sender:vm.$data.sender}));
                 }, function(error) {
                     if(reconnect++ <= 5) {
                         setTimeout(function() {

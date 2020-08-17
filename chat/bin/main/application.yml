@@ -5,4 +5,5 @@ spring:
         restart:
             enabled: false
     freemarker:
-        cache: false
+        template-loader-path: classpath:/templates
+        suffix: .ftl
