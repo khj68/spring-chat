@@ -1,14 +1,8 @@
 package jun.chat.data;
 
-import java.util.HashSet;
-import java.util.Set;
 import java.util.UUID;
 
-import org.springframework.web.socket.WebSocketSession;
-
-import lombok.Builder;
 import lombok.Data;
-import jun.chat.ChatService;
 
 @Data
 public class ChatRoom {
